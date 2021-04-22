@@ -1,0 +1,10 @@
+17:09:37 **** Incremental Build of configuration Debug for project 444Lab1 ****
+make -j8 all 
+arm-none-eabi-size   444Lab1.elf 
+   text	   data	    bss	    dec	    hex	filename
+  35312	    488	   1584	  37384	   9208	444Lab1.elf
+Finished building: default.size.stdout
+ 
+
+17:09:37 Build Finished. 0 errors, 0 warnings. (took 526ms)
+

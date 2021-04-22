@@ -1,0 +1,8 @@
+main.c:65:5:getFrequencies	4168	static
+main.c:102:6:sineWaveGenerator	40	static
+main.c:118:7:measurePeriod	40	static
+main.c:144:12:measureFrequencyFFT	32	static
+main.c:166:5:main	16976	static
+main.c:257:6:SystemClock_Config	96	static
+main.c:306:13:MX_GPIO_Init	16	static
+main.c:322:6:Error_Handler	4	static,ignoring_inline_asm

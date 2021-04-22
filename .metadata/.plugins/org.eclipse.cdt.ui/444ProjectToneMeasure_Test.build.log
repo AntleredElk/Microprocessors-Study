@@ -1,0 +1,60 @@
+00:48:37 **** Incremental Build of configuration Debug for project 444ProjectToneMeasure_Test ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DDEBUG -DSTM32L4S5xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'getFrequencies':
+../Core/Src/main.c:71:6: warning: unused variable 'noise' [-Wunused-variable]
+  int noise = 150; //variable noise offset
+      ^~~~~
+../Core/Src/main.c: In function 'sineWaveGenerator':
+../Core/Src/main.c:107:18: warning: implicit declaration of function 'malloc' [-Wimplicit-function-declaration]
+  int* sineWave = malloc(arraySize*sizeof(int));
+                  ^~~~~~
+../Core/Src/main.c:107:18: warning: incompatible implicit declaration of built-in function 'malloc'
+../Core/Src/main.c:107:18: note: include '<stdlib.h>' or provide a declaration of 'malloc'
+../Core/Src/main.c: In function 'measureFrequencyFFT':
+../Core/Src/main.c:147:22: warning: incompatible implicit declaration of built-in function 'malloc'
+  float32_t* output = malloc(clipSize*sizeof(float32_t));
+                      ^~~~~~
+../Core/Src/main.c:147:22: note: include '<stdlib.h>' or provide a declaration of 'malloc'
+../Core/Src/main.c:150:25: warning: passing argument 1 of 'arm_rfft_fast_init_f32' from incompatible pointer type [-Wincompatible-pointer-types]
+  arm_rfft_fast_init_f32(&init, (uint16_t)clipSize); //Supports lengths that look like 2^something
+                         ^
+In file included from ../Core/Src/main.c:27:0:
+../Core/Inc/arm_math.h:3330:12: note: expected 'arm_rfft_fast_instance_f32 * {aka struct <anonymous> *}' but argument is of type 'arm_rfft_fast_instance_f32 ** {aka struct <anonymous> **}'
+ arm_status arm_rfft_fast_init_f32 (
+            ^~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:153:20: warning: passing argument 1 of 'arm_rfft_fast_f32' from incompatible pointer type [-Wincompatible-pointer-types]
+  arm_rfft_fast_f32(&init, (float32_t*)soundClip, output, 0);
+                    ^
+In file included from ../Core/Src/main.c:27:0:
+../Core/Inc/arm_math.h:3335:8: note: expected 'const arm_rfft_fast_instance_f32 * {aka const struct <anonymous> *}' but argument is of type 'arm_rfft_fast_instance_f32 ** {aka struct <anonymous> **}'
+   void arm_rfft_fast_f32(
+        ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:178:14: warning: incompatible implicit declaration of built-in function 'malloc'
+  int* test = malloc(arraySize*sizeof(int));
+              ^~~~~~
+../Core/Src/main.c:178:14: note: include '<stdlib.h>' or provide a declaration of 'malloc'
+../Core/Src/main.c:243:8: warning: unused variable 'frequency' [-Wunused-variable]
+    int frequency = getFrequencies(&fft_handler, 48000, fft_in_buf, fft_out_buf);
+        ^~~~~~~~~
+../Core/Src/main.c:184:8: warning: unused variable 'use_this_signal' [-Wunused-variable]
+  float use_this_signal[] = {-0.193207, -0.169879, -0.14191, -0.11115, -0.0769944, -0.041726, -0.00486888, 0.0326922, 0.0682754, 0.100679, 0.132158, 0.163183, 0.190152, 0.215109, 0.238101, 0.255922, 0.269523, 0.277578, 0.281176, 0.280139, 0.274308, 0.26411, 0.247938, 0.226575, 0.201794, 0.1741, 0.143944, 0.113993, 0.0815677, 0.0450895, 0.00824386, -0.0285772, -0.0655515, -0.101127, -0.133882, -0.164063, -0.189885, -0.211087, -0.229038, -0.243586, -0.254433, -0.259993, -0.260314, -0.256299, -0.246047, -0.231419, -0.21384, -0.191256, -0.164803, -0.135724, -0.104817, -0.0725117, -0.0385573, -0.0037286, 0.0308825, 0.0668126, 0.102778, 0.135459, 0.166302, 0.194233, 0.217749, 0.23817, 0.252831, 0.264449, 0.272086, 0.27487, 0.27346, 0.265665, 0.254301, 0.239376, 0.219844, 0.195846, 0.168488, 0.137393, 0.103867, 0.0695678, 0.033984, -0.000156238, -0.0346218, -0.0678978, -0.0992622, -0.130934, -0.158279, -0.184168, -0.208552, -0.225724, -0.239788, -0.248848, -0.251982, -0.251309, -0.245821, -0.237838, -0.224257, -0.205344, -0.18453, -0.159445, -0.130611, -0.100406, -0.0679403, -0.0347117, -0.00101715, 0.0352383, 0.0697805, 0.102933, 0.135169, 0.164305, 0.191134, 0.213796, 0.233196, 0.250029, 0.263132, 0.272763, 0.276325, 0.273514, 0.265775, 0.253712, 0.237029, 0.216982, 0.194876, 0.168322, 0.139089, 0.106883, 0.0723815, 0.0376486, 0.00120259, -0.0346571, -0.0679164, -0.101604, -0.134166};
+        ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "444ProjectToneMeasure_Test.elf" @"objects.list"  -larm_cortexM4lf_math -mcpu=cortex-m4 -T"/home/antler/STM32CubeIDE/workspace_1.5.1/444_Project_Group12/444ProjectToneMeasure_Test/STM32L4S5VITX_FLASH.ld" --specs=nosys.specs -Wl,-Map="444ProjectToneMeasure_Test.map" -Wl,--gc-sections -static -L"/home/antler/STM32CubeIDE/workspace_1.5.1/444_Project_Group12/444ProjectToneMeasure_Test/Core/Lib" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 444ProjectToneMeasure_Test.elf
+ 
+arm-none-eabi-objdump -h -S  444ProjectToneMeasure_Test.elf  > "444ProjectToneMeasure_Test.list"
+arm-none-eabi-objcopy  -O binary  444ProjectToneMeasure_Test.elf  "444ProjectToneMeasure_Test.bin"
+arm-none-eabi-size   444ProjectToneMeasure_Test.elf 
+   text	   data	    bss	    dec	    hex	filename
+  96068	    124	   1588	  97780	  17df4	444ProjectToneMeasure_Test.elf
+Finished building: default.size.stdout
+ 
+Finished building: 444ProjectToneMeasure_Test.bin
+ 
+Finished building: 444ProjectToneMeasure_Test.list
+ 
+
+00:48:38 Build Finished. 0 errors, 9 warnings. (took 986ms)
+
